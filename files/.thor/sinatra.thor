@@ -1,3 +1,4 @@
+# USAGE: thor sinatra APPNAME
 require 'active_support/inflector'
 
 class Sinatra < Thor::Group
