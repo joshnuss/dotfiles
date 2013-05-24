@@ -1,0 +1,53 @@
+snippet layout "add a rails layout" b
+!!!
+%html
+  %head
+    %title= @title
+    = render 'shared/head'
+  %body
+    #wrapper
+      = render 'shared/header'
+      = yield
+      = render 'shared/footer'
+endsnippet
+
+snippet form "add a rails form_for" b
+= form_for @${1:object} do |${2:form}|
+endsnippet
+
+snippet field "add a field layout" b
+%p.field
+  = form.label :${1:name}
+  = form.${2:text_field} :$1
+endsnippet
+
+snippet submit "add a submit" b
+%p.buttons
+  = form.submit '${1:Save}'
+endsnippet
+
+snippet "%?table" "add a table" br
+%table#${1:items}
+  %thead
+    %tr
+      %th ${6:`!p snip.rv = i.humanize(t[4])`}
+      %th ${7:`!p snip.rv = i.humanize(t[5])`}
+  %tbody
+    - @${2:`!p snip.rv = i.underscore(t[1])`}.each do |${3:`!p 
+import re
+snip.rv = i.singularize(re.split('[._]', t[2])[-1])`}|
+      %tr{:class => cycle(%w(even odd))}
+        %td= $3.${4:name}
+        %td= $3.${5:description}
+endsnippet
+
+snippet "%?tr" "add a table row" br
+%tr
+  %td= $2
+endsnippet
+
+snippet "%?ul" "add a html list" br
+%ul#${1:items}
+  - @${2:`!p snip.rv = i.underscore(t[1])`}.each do |${4:`!p snip.rv = i.singularize(t[2])`}|
+    %li= $4.$3
+endsnippet

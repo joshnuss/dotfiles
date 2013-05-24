@@ -1,0 +1,134 @@
+snippet todo "Mark something to be done later" !b
+# TODO: ${1:description}
+endsnippet
+
+snippet module "Define a module" !b
+module ${2:`!p
+import re
+
+file_name = snip.basename
+parts = file_name.split('_')
+class_name = ''.join([word.capitalize() for word in parts])
+snip.rv = class_name
+            `}
+  ${1}
+end
+endsnippet
+
+snippet class "Define a class" !b
+class ${2:`!p
+import re
+
+file_name = snip.basename
+parts = file_name.split('_')
+class_name = ''.join([word.capitalize() for word in parts])
+snip.rv = class_name
+            `}
+  ${1}
+end
+endsnippet
+
+snippet "\b(de)?f" "Define a method" !br
+def ${1:method_name}
+  ${2}
+end
+endsnippet
+
+snippet init "Define an initializer" !b
+def initialize$1
+  $2
+end
+endsnippet
+
+snippet model "Define an Active Record model" !b
+class ${2:`!p
+import re
+
+file_name = snip.basename
+parts = file_name.split('_')
+class_name = ''.join([word.capitalize() for word in parts])
+snip.rv = class_name
+            `} < ActiveRecord::Base
+  $1
+end
+endsnippet
+
+snippet controller "Define a Rails controller" !b
+class ${2:`!p
+import re
+
+file_name = snip.basename
+parts = file_name.split('_')
+class_name = ''.join([word.capitalize() for word in parts])
+snip.rv = class_name
+            `} < ${2:ApplicationController}
+  $1
+end
+endsnippet
+
+snippet migration "Define an Active Record migration" !b
+class ${2:`!p
+import re
+
+file_name = re.sub(r'\d+_', "", snip.basename)
+parts = file_name.split('_')
+class_name = ''.join([word.capitalize() for word in parts])
+snip.rv = class_name
+            `} < ActiveRecord::Migration
+  def change
+    $1
+  end
+end
+endsnippet
+
+snippet create_table "Define a table inside a migration" !b
+create_table :${1:widgets} do |t|
+  t.${3:string} :${2:name}
+
+  t.timestamps
+end
+endsnippet
+
+snippet change_table "Define a table inside a migration" !b
+change_table :${1:widgets} do |t|
+  t.${3:string} :${2:name}
+end
+endsnippet
+
+snippet spec "Define an RSpec specification" b
+require 'spec_helper'
+
+describe ${2:`!p
+import re
+
+file_name = re.sub(r'\d+_', "", snip.basename)
+parts = file_name.split('_')[:-1]
+class_name = ''.join([word.capitalize() for word in parts])
+snip.rv = class_name
+            `} do
+  $1
+end
+endsnippet
+
+snippet context "Define an RSpec context" !b
+context '${1:doing something}' do
+  $2
+endsnippet
+
+snippet let "Define an RSpec variable" !b
+let(:${1:name}) { $2 }
+endsnippet
+
+snippet specify "Define an RSpec specify block" !b
+specify { should$3 ${2:==} $1 }
+endsnippet
+
+snippet specify! "Define an RSpec specify block with should_not" !b
+specify { should${3:_not} ${2:==} $1 }
+endsnippet
+
+snippet it "Define an RSpec it block" !b
+it '${1:does something}' do
+  $2
+end
+endsnippet

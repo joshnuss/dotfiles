@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title <%= name.humanize %>
+    %script{type: 'text/javascript', src: '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'}
+    %script{type: 'text/javascript', src: 'js/app.js'}
+    %link{rel: 'stylesheet', href: '/css/app.css'}
+  %body
+    %header
+    %section.main
+      %h1 <%= name.humanize %>
+    %footer

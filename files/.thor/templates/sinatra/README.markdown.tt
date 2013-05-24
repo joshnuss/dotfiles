@@ -1,0 +1,3 @@
+# Running application
+
+`shotgun <%= name %>.rb`

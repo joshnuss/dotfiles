@@ -1,0 +1,7 @@
+---
+sinatra.thor:
+  :filename: !binary |-
+    NmZlZDkzODczNWYwMGQ2YTc1N2UwYzRjYTdjODdiMTc=
+  :location: /home/josh/.dotfiles/files/.thor/sinatra.thor
+  :namespaces:
+  - sinatra

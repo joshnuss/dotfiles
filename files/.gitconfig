@@ -1,0 +1,30 @@
+[user]
+	email = joshnuss@gmail.com
+  name = Josh Nussbaum
+[github]
+	user = joshnuss
+[push]
+	default = matching
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[core]
+	excludesfile = ~/.gitignore
