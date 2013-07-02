@@ -51,3 +51,7 @@ snippet "%?ul" "add a html list" br
   - @${2:`!p snip.rv = i.underscore(t[1])`}.each do |${4:`!p snip.rv = i.singularize(t[2])`}|
     %li= $4.$3
 endsnippet
+
+snippet "ng\:?" "adds ng brackets" ir
+ng: {$1: '$2'}
+endsnippet
